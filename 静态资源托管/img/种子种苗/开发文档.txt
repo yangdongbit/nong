@@ -1,0 +1,119 @@
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗1.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗1.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗1.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗1.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗1.5.png"}，
+
+​        title: "美人指葡萄嫁接苗扦插苗南北方种植,20株起批",
+
+​        price: 5,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗2.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗2.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗2.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗2.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗2.5.png"}，
+
+​        title: "珍品一号丝瓜种子广东壹品丝瓜种子博丰8号丝瓜种子",
+
+​        price:7.8
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗3.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗3.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗3.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗3.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗3.5.png"}，
+
+​        title: "巨鑫源芦笋种子（原种一代）高产稳产-绿白兼用顺丰全国包邮发货“,
+
+​        price:150,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗4.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗4.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗4.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗4.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗4.5.png"}，
+
+​        title: "抗寒抗病毒西葫芦种子 油亮型翠绿角瓜籽包邮",
+
+​        price:108,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗5.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗5.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗5.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗5.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗5.5.png"}，
+
+​        title: "国审广良甜27泰系超甜玉米太阳3号玉米种子 产量好口感好",
+
+​        price: 160,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗6.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗6.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗6.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗6.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗6.5.png"}，
+
+​        title: "花生种华育25花生芽专用种子芽苗菜种子新种精选手剥9616,100斤起批",
+
+​        price:8,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗7.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗7.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗7.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗7.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗7.5.png"}，
+
+​        title: "青香优19香 青香优十九香 双香型 香稻 广东丝苗米认定品种,100斤起批",
+
+​        price: 59.8,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗8.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗8.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗8.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗8.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗8.5.png"}，
+
+​        title: "柑橘种子 红桔种子枸橘种子香橙种子红橘种子枳壳种子臭橘香",
+
+​        price: 45,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗9.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗9.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗9.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗9.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗9.5.png"}，
+
+​        title: "绿豆种子黑小豆红小豆花豇豆种子春夏播种",
+
+​        price: 8,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/种子种苗/种子种苗10.1.png",
+
+​        "http://localhost:3000/yang/img/种子种苗/种子种苗10.2.png","http://localhost:3000/yang/img/种子种苗/种子种苗10.3.png","http://localhost:3000/yang/img/种子种苗/种子种苗10.4.png","http://localhost:3000/yang/img/种子种苗/种子种苗10.5.png"}，
+
+​        title: "重瓣凤仙花种子 指甲花凤仙茶花四季播易活庭院阳台 盆栽花卉,1斤起批",
+
+​        price: 55,
+
+​        },

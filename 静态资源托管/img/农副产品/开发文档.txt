@@ -1,0 +1,97 @@
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品1.1.jpg", "http://localhost:3000/yang/img/农产品/农产品1.2.png","http://localhost:3000/yang/img/农产品/农产品1.3.png","http://localhost:3000/yang/img/农产品/农产品1.4.png","http://localhost:3000/yang/img/农产品/农产品1.5.png"}，
+
+​        title: "【山东中期海带】宽板子大长条海带少黄叶少沙少杂质泡发率高，100斤起批",
+
+​        price: 5.80,
+
+​      },{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品2.1.png", "http://localhost:3000/yang/img/农产品/农产品2.2.png","http://localhost:3000/yang/img/农产品/农产品2.3.png","http://localhost:3000/yang/img/农产品/农产品2.4.png","http://localhost:3000/yang/img/农产品/农产品2.5.png"}，
+
+​        title: "【专业批发】安吉白茶特等新茶绿茶春茶礼盒装高山绿茶雨前",
+
+​        price: 150,
+
+​      },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品3.1.jpg", "http://localhost:3000/yang/img/农产品/农产品3.2.png","http://localhost:3000/yang/img/农产品/农产品3.3.png","http://localhost:3000/yang/img/农产品/农产品3.4.png","http://localhost:3000/yang/img/农产品/农产品3.5.png"}，
+
+​        title: "厂家供货自产自销新疆红枣5斤家庭实惠装 皮薄核小味甜若羌灰枣",
+
+​        price: 29,
+
+​      },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品4.1.jpg", "http://localhost:3000/yang/img/农产品/农产品4.2.png","http://localhost:3000/yang/img/农产品/农产品4.3.png","http://localhost:3000/yang/img/农产品/农产品4.4.png","http://localhost:3000/yang/img/农产品/农产品4.5.png"}，
+
+​        title: "红枸杞 宁夏中宁枸杞西北特产宁夏特产宁夏枸杞500克一斤袋",
+
+​        price: 25,
+
+​      },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品5.1.png", "http://localhost:3000/yang/img/农产品/农产品5.2.png","http://localhost:3000/yang/img/农产品/农产品5.3.png","http://localhost:3000/yang/img/农产品/农产品5.4.png","http://localhost:3000/yang/img/农产品/农产品5.5.png"}，
+
+​        title: "新泰莲精选过筛去芯带芯磨白莲，厂家直供量大从优",
+
+​        price: 17.5,
+
+​      },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/农产品/农产品6.1.png", "http://localhost:3000/yang/img/农产品/农产品6.2.png","http://localhost:3000/yang/img/农产品/农产品6.3.png","http://localhost:3000/yang/img/农产品/农产品6.4.png","http://localhost:3000/yang/img/农产品/农产品6.5.png"}，
+
+​        title: "北海章鱼干包邮 汤包汤料 干度好 新鲜度好 颜色好 性价比高",
+
+​        price: 145,
+
+​      },
+
+{
+
+​        imgSrc:{ "<http://localhost:3000/yang/img/>农产品/农产品7.1.png", "<http://localhost:3000/yang/img/>农产品/农产品7.2.png","<http://localhost:3000/yang/img/>农产品/农产品7.3.png","<http://localhost:3000/yang/img/>农产品/农产品7.4.png","<http://localhost:3000/yang/img/>农产品/农产品7.5.png"}，
+
+​        title: "淡干虾皮，低盐虾皮，无盐虾皮，一件代发",
+
+​        price: 85,
+
+​      },
+
+{
+
+​        imgSrc:{ "<http://localhost:3000/yang/img/>农产品/农产品8.1.png", "<http://localhost:3000/yang/img/>农产品/农产品8.2.png","<http://localhost:3000/yang/img/>农产品/农产品8.3.png","<http://localhost:3000/yang/img/>农产品/农产品8.4.png","<http://localhost:3000/yang/img/>农产品/农产品8.5.png"}，
+
+​        title: "肘把云南老火腿脚宣威火腿,20斤起批",
+
+​        price: 23,
+
+​      },
+
+{
+
+​        imgSrc:{ "<http://localhost:3000/yang/img/>农产品/农产品9.1.png", "<http://localhost:3000/yang/img/>农产品/农产品9.2.png","<http://localhost:3000/yang/img/>农产品/农产品9.3.png","<http://localhost:3000/yang/img/>农产品/农产品9.4.png","<http://localhost:3000/yang/img/>农产品/农产品9.5.png"}，
+
+​        title: "云南农家蜂蜜，产地直发，天然地理优势，品质保障，量大价优，5斤起批",
+
+​        price: 118,
+
+​      },
+
+{
+
+​        imgSrc:{ "<http://localhost:3000/yang/img/>农产品/农产品10.1.png", "<http://localhost:3000/yang/img/>农产品/农产品10.2.png","<http://localhost:3000/yang/img/>农产品/农产品10.3.png","<http://localhost:3000/yang/img/>农产品/农产品10.4.png","<http://localhost:3000/yang/img/>农产品/农产品5.5.png"}，
+
+​        title: "葡萄干无籽免洗 新疆大枣 核桃 葡萄干大量现货支持,60斤起批",
+
+​        price: 5.6,
+
+​      },

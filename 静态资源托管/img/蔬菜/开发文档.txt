@@ -1,0 +1,64 @@
+{
+    imgSrc:{ "http://localhost:3000/yang/img/蔬菜/蔬菜1.1.png","http://localhost:3000/yang/img/蔬菜/蔬菜1.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜1.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜1.4.png",蔬菜/蔬菜1.1.png","http://localhost:3000/yang/img/蔬菜/蔬菜1.4.png",蔬菜/蔬菜1.1.png"},
+    title: "毛木耳干货餐饮火锅食材脆木耳农家特产黑木耳凉拌头茬白背毛木耳",
+    price: 18,
+  },
+{
+    imgSrc: {"http://localhost:3000/yang/img/蔬菜/蔬菜2.1.jpg","http://localhost:3000/yang/img/蔬菜/蔬菜2.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜2.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜2.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜2.5.png"},
+    title: "香菇冬菇产地直供质量杠杠的香菇干货 精选面菇一手货源！",
+    price: 32,
+  },
+{
+    imgSrc: {"http://localhost:3000/yang/img/蔬菜/蔬菜3.1.jpg","http://localhost:3000/yang/img/蔬菜/蔬菜3.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜3.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜3.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜3.5.png"},
+    title: "蜜薯烟薯25糖心流油，软糯香甜，红皮红心，品质保证，长期合作",
+    price: 2.5,
+  },
+{
+     imgSrc: {"http://localhost:3000/yang/img/蔬菜/蔬菜4.1.jpg","http://localhost:3000/yang/img/蔬菜/蔬菜4.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜4.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜4.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜4.5.png"},
+    title: "大量供应优质 黄葱 黄葱头 红香葱头提供电商 食品厂加工葱头",
+    price: 10,
+  },
+
+{
+     imgSrc: {"http://localhost:3000/yang/img/蔬菜/蔬菜5.1.jpg","http://localhost:3000/yang/img/蔬菜/蔬菜5.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜5.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜5.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜5.5.png"},
+    title: "红色贝贝南瓜金粉一号黄金小贝产地直发基地种植量大优惠一手货源,5000斤起批",
+    price: 3.50,
+  },
+
+{
+     imgSrc: {"http://localhost:3000/yang/img/蔬菜/蔬菜6.1.jpg","http://localhost:3000/yang/img/蔬菜/蔬菜6.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜6.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜6.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜6.5.png"},
+    title: "青梗白面松花菜，货源充足，现采现摘，一手货源，产地直发,2000斤起批",
+    price: 1.20,
+  },
+
+{
+
+​       imgSrc:{ "http://localhost:3000/yang/img/蔬菜/蔬菜7.1.png", "http://localhost:3000/yang/img/蔬菜/蔬菜7.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜7.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜7.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜7.5.png"},
+
+​    title: "【推荐】湖北精品黄心大白菜主要对接全国市场产地直,36000斤起批",
+    price: 0.45,
+  },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/蔬菜/蔬菜8.1.png", "http://localhost:3000/yang/img/蔬菜/蔬菜8.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜8.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜8.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜8.5.png"},
+
+​    title: "精品生菜 产地直供 量大优先 常年供应,1000斤起批",
+    price: 1,
+  },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/蔬菜/蔬菜9.1.png", "http://localhost:3000/yang/img/蔬菜/蔬菜9.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜9.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜9.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜9.5.png"},
+
+​    title: "东台一级香菜 无黄叶 货源充足 产地直销,100斤起批",
+    price: 0.6,
+  },
+
+{
+
+​        imgSrc:{ "http://localhost:3000/yang/img/蔬菜/蔬菜10.1.png", "http://localhost:3000/yang/img/蔬菜/蔬菜10.2.png","http://localhost:3000/yang/img/蔬菜/蔬菜10.3.png","http://localhost:3000/yang/img/蔬菜/蔬菜10.4.png","http://localhost:3000/yang/img/蔬菜/蔬菜10.5.png"},
+
+​    title: "四季豆无筋豆角 40cm~70cm现摘无丝豆批发源头发货,1000斤起批",
+    price: 1.5,
+  },

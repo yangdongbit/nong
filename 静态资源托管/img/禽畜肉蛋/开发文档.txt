@@ -1,0 +1,119 @@
+ {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋1.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋1.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋1.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋1.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋1.5.png"}，
+
+​        title: "青脚麻，金陵花，麻鸡苗（惠农平台严选）店，质量有保障，500只起批",
+
+​        price: 3.90,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋2.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋2.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋2.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋2.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋2.5.png"}，
+
+​        title: "苏太猪苗 苏太母猪！抗病能力强！繁殖瘦肉型猪苗！两头起批",
+
+​        price:750,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋3.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋3.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋3.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋3.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋3.5.png"}，
+
+​        title: "五香肥肠全熟卤肥肠厂家批发加热即食,20斤起批"
+
+​        price:33,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋4.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋4.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋4.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋4.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋4.5.png"}，
+
+​        title: "鲜鸭蛋现货供应，标准个头，优质水源，质量保证！，1斤起批",
+
+​        price:5.8,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋5.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋5.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋5.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋5.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋5.5.png"}，
+
+​        title: "初生蛋开窝蛋！绿壳蛋批发，一件代发！玉米小麦喂养，森林散养！",
+
+​        price: 240,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋6.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋6.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋6.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋6.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋6.5.png"}，
+
+​        title: "河南热销过千 变蛋整箱40枚河南特产糖心手工变蛋",
+
+​        price:45,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋7.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋7.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋7.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋7.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋7.5.png"}，
+
+​        title: "伊普吕肉兔 专车批量送货到家 技术跟踪指导！,3只起批",
+
+​        price: 40,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋8.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋8.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋8.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋8.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋8.5.png"}，
+
+​        title: "烤海鸭蛋 厂家直发北部湾红树林海边散养，单个50～80克",
+
+​        price: 47,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋9.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋9.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋9.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋9.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋9.5.png"}，
+
+​        title: "羊波尔山羊大型养殖场，可视频选羊支持货到付款,5只起批",
+
+​        price: 630,
+
+​        },
+
+​        {
+
+​        imgSrc:{ "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋10.1.png",
+
+​        "http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋10.2.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋10.3.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋10.4.png","http://localhost:3000/yang/img/禽畜肉蛋/禽畜肉蛋10.5.png"}，
+
+​        title: "现杀鹌鹑 活体新鲜长期供货，价钱实惠。珠三角班车配送,1000只起批",
+
+​        price: 1.5,
+
+​        },

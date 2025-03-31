@@ -1,0 +1,85 @@
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果1.1.png", "<http://localhost:3000/yang/img/>水果/水果1.2.png","<http://localhost:3000/yang/img/>水果/水果1.3.png","<http://localhost:3000/yang/img/>水果/水果1.4.png","<http://localhost:3000/yang/img/>水果/水果1.5.png"}，
+
+​    title: "【西州蜜25】哈密瓜产地直发，规格全，对接全国客商，合作共赢,20000斤起批",
+    price: 1.90,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果1.1.png", "<http://localhost:3000/yang/img/>水果/水果1.2.png","<http://localhost:3000/yang/img/>水果/水果1.3.png","<http://localhost:3000/yang/img/>水果/水果1.4.png","<http://localhost:3000/yang/img/>水果/水果1.5.png"}，
+
+​    title: "兔眼蓝莓 【头茬蓝莓】细腻的果肉 甜脆饱满 清香爽滑",
+    price: 79,
+  },
+
+{
+
+   imgSrc:{ "http://localhost:3000/yang/img/水果/水果3.1.jpg", "http://localhost:3000/yang/img/水果/水果
+
+3.2.jpg","http://localhost:3000/yang/img/水果/水果3.3.jpg","http://localhost:3000/yang/img/水果/水果
+
+3.4.jpg","http://localhost:3000/yang/img/水果/水果3.5.jpg"}
+
+​    title: "四川攀枝花凯特芒果9斤新鲜应当季水果特大青忙果整箱批发包邮",
+    price: 17,
+  },
+
+   imgSrc:{ "http://localhost:3000/yang/img/水果/水果4.1.jpg", "http://localhost:3000/yang/img/水果/水果
+
+4.2.jpg","http://localhost:3000/yang/img/水果/水果4.3.jpg","http://localhost:3000/yang/img/水果/水果
+
+4.4.png","http://localhost:3000/yang/img/水果/水果4.5.png"}
+
+​    title: "黄柠檬 安岳尤力克黄柠檬 一二级好果 产地果园直销",
+    price: 3,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果5.1.png", "<http://localhost:3000/yang/img/>水果/水果5.2.png","<http://localhost:3000/yang/img/>水果/水果5.3.png","<http://localhost:3000/yang/img/>水果/水果5.4.png","<http://localhost:3000/yang/img/>水果/水果5.5.png"}，
+
+​    title: "万亩美都麒麟西瓜，大量供应，对应各大平台，市场，商超，质量,1000斤起批",
+    price: 2.30,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果6.1.png", "<http://localhost:3000/yang/img/>水果/水果6.2.png","<http://localhost:3000/yang/img/>水果/水果6.3.png","<http://localhost:3000/yang/img/>水果/水果6.4.png","<http://localhost:3000/yang/img/>水果/水果6.5.png"}，
+
+​    title: "山东烟台秋月梨爽脆甜多汁皮薄肉厚现摘现发新鲜水果",
+    price: 36,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果7.1.png", "<http://localhost:3000/yang/img/>水果/水果7.2.png","<http://localhost:3000/yang/img/>水果/水果7.3.png","<http://localhost:3000/yang/img/>水果/水果7.4.png","<http://localhost:3000/yang/img/>水果/水果7.5.png"}，
+
+​    title: "海南优质菠萝蜜一个也包邮，产地代办电商微商一件代发一条龙服务",
+    price: 108,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果8.1.png", "<http://localhost:3000/yang/img/>水果/水果8.2.png","<http://localhost:3000/yang/img/>水果/水果8.3.png","<http://localhost:3000/yang/img/>水果/水果8.4.png","<http://localhost:3000/yang/img/>水果/水果8.5.png"}，
+
+​    title: "爱媛橙 丹棱县爱媛38号果冻橙手剥橙皮薄多汁新鲜采摘农户直",
+    price: 64,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果9.1.png", "<http://localhost:3000/yang/img/>水果/水果9.2.png","<http://localhost:3000/yang/img/>水果/水果9.3.png","<http://localhost:3000/yang/img/>水果/水果9.4.png","<http://localhost:3000/yang/img/>水果/水果9.5.png"}，
+
+​    title: "泰国龙眼5kg批发",
+    price: 55,
+  },
+
+{
+
+​    imgSrc:{ "<http://localhost:3000/yang/img/>水果/水果10.1.png", "<http://localhost:3000/yang/img/>水果/水果10.2.png","<http://localhost:3000/yang/img/>水果/水果10.3.png","<http://localhost:3000/yang/img/>水果/水果10.4.png","<http://localhost:3000/yang/img/>水果/水果10.5.png"}，
+
+​    title: "阳光玫瑰一件代发，全商品顺丰发货，阳光玫瑰，产地直发！香印",
+    price: 36,
+  },
