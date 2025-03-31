@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品推荐测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: none;
+        }
+        .result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .result-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-images {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        .product-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-price {
+            color: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .info-item {
+            padding: 5px;
+        }
+        .info-label {
+            color: #666;
+            font-size: 14px;
+        }
+        .similarity-scores {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .score-item {
+            flex: 1;
+            text-align: center;
+        }
+        .score-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fee;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商品推荐测试</h1>
+        <form id="recommendForm">
+            <div class="form-group">
+                <label for="product_name">商品名称 *</label>
+                <input type="text" id="product_name" required placeholder="请输入商品名称">
+            </div>
+            <div class="form-group">
+                <label for="image_url">商品图片URL（可选）</label>
+                <input type="text" id="image_url" placeholder="请输入图片URL">
+            </div>
+            <div class="form-group">
+                <label for="text_weight">文本权重 (0-1)</label>
+                <input type="number" id="text_weight" value="0.5" min="0" max="1" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="image_weight">图像权重 (0-1)</label>
+                <input type="number" id="image_weight" value="0.5" min="0" max="1" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="top_n">推荐数量</label>
+                <input type="number" id="top_n" value="5" min="1" max="20">
+            </div>
+            <button type="submit">获取推荐</button>
+        </form>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('recommendForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = '正在加载推荐结果...';
+
+            const data = {
+                product_name: document.getElementById('product_name').value,
+                image_url: document.getElementById('image_url').value || null,
+                text_weight: parseFloat(document.getElementById('text_weight').value),
+                image_weight: parseFloat(document.getElementById('image_weight').value),
+                top_n: parseInt(document.getElementById('top_n').value)
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/recommend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    let html = '<h2>推荐结果：</h2>';
+                    result.recommendations.forEach((item, index) => {
+                        html += `
+                            <div class="result-item">
+                                <div class="product-title">${index + 1}. ${item.product_name}</div>
+
+                                <div class="product-images">
+                                    ${item.imgSrc ? `<img src="${item.imgSrc}" class="product-image" alt="主图">` : ''}
+                                    ${item.imgSrc1 ? `<img src="${item.imgSrc1}" class="product-image" alt="图片1">` : ''}
+                                    ${item.imgSrc2 ? `<img src="${item.imgSrc2}" class="product-image" alt="图片2">` : ''}
+                                    ${item.imgSrc3 ? `<img src="${item.imgSrc3}" class="product-image" alt="图片3">` : ''}
+                                    ${item.imgSrc4 ? `<img src="${item.imgSrc4}" class="product-image" alt="图片4">` : ''}
+                                </div>
+
+                                <div class="product-price">￥${item.price || '暂无价格'}</div>
+
+                                <div class="product-info">
+                                    <div class="info-item">
+                                        <span class="info-label">商品类型：</span>
+                                        <span>${item.type || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">发货地：</span>
+                                        <span>${item.shipping_from || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">快递：</span>
+                                        <span>${item.express_name || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">规格：</span>
+                                        <span>${item.specification || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">存储方法：</span>
+                                        <span>${item.storage_method || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">保质期：</span>
+                                        <span>${item.shelf_life || '未知'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">销量：</span>
+                                        <span>${item.sales_volume || '0'}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">库存：</span>
+                                        <span>${item.stock || '0'}</span>
+                                    </div>
+                                </div>
+
+                                <div class="similarity-scores">
+                                    <div class="score-item">
+                                        <div class="info-label">文本相似度</div>
+                                        <div class="score-value">${(item.text_similarity * 100).toFixed(2)}%</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="info-label">图像相似度</div>
+                                        <div class="score-value">${(item.image_similarity * 100).toFixed(2)}%</div>
+                                    </div>
+                                    <div class="score-item">
+                                        <div class="info-label">综合相似度</div>
+                                        <div class="score-value">${(item.combined_similarity * 100).toFixed(2)}%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultsDiv.innerHTML = html;
+                } else {
+                    resultsDiv.innerHTML = `<div class="error">错误: ${result.error}</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">请求失败: ${error.message}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>
