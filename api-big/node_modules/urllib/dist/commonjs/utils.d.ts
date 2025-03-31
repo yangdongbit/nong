@@ -1,0 +1,11 @@
+import type { FixJSONCtlChars } from './Request.js';
+import { SocketInfo } from './Response.js';
+import { IncomingHttpHeaders } from './IncomingHttpHeaders.js';
+export declare function parseJSON(data: string, fixJSONCtlChars?: FixJSONCtlChars): string;
+export declare function digestAuthHeader(method: string, uri: string, wwwAuthenticate: string, userpass: string): string;
+export declare function globalId(category: string): number;
+export declare function performanceTime(startTime: number, now?: number): number;
+export declare function isReadable(stream: any): boolean;
+export declare function updateSocketInfo(socketInfo: SocketInfo, internalOpaque: any, err?: any): void;
+export declare function convertHeader(headers: Headers): IncomingHttpHeaders;
+export declare function patchForNode16(): void;

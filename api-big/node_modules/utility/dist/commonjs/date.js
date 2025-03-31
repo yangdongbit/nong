@@ -1,0 +1,219 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DateFormat = exports.YYYYMMDDHHmmssSSS = void 0;
+exports.resetTimezone = resetTimezone;
+exports.getDateStringParts = getDateStringParts;
+exports.accessLogDate = accessLogDate;
+exports.getTimezone = getTimezone;
+exports.logDate = logDate;
+exports.YYYYMMDDHHmmss = YYYYMMDDHHmmss;
+exports.YYYYMMDD = YYYYMMDD;
+exports.datestruct = datestruct;
+exports.timestamp = timestamp;
+exports.parseTimestamp = parseTimestamp;
+exports.dateToUnixTimestamp = dateToUnixTimestamp;
+exports.getDateFromMilliseconds = getDateFromMilliseconds;
+const ylru_1 = require("ylru");
+const lru = new ylru_1.LRU(1000); // Cache up to 1000 entries
+function resetTimezone(date) {
+    let TIMEZONE = '';
+    const offsetInMinutes = date.getTimezoneOffset();
+    const _hourOffset = Math.floor(-offsetInMinutes / 60);
+    const _minuteOffset = Math.abs(offsetInMinutes % 60);
+    TIMEZONE += _hourOffset >= 0 ? '+' : '-';
+    TIMEZONE += `${String(Math.abs(_hourOffset)).padStart(2, '0')}${String(_minuteOffset).padStart(2, '0')}`;
+    return TIMEZONE;
+}
+const MONTHS = {
+    '01': 'Jan',
+    '02': 'Feb',
+    '03': 'Mar',
+    '04': 'Apr',
+    '05': 'May',
+    '06': 'Jun',
+    '07': 'Jul',
+    '08': 'Aug',
+    '09': 'Sep',
+    // eslint-disable-next-line quote-props
+    '10': 'Oct',
+    // eslint-disable-next-line quote-props
+    '11': 'Nov',
+    // eslint-disable-next-line quote-props
+    '12': 'Dec',
+};
+/**
+ * return `[ YYYY, MM, DD, HH, mm, ss ]` date string array
+ */
+function getDateStringParts(d, onlyDate) {
+    d = d || new Date();
+    const monthNum = d.getMonth() + 1;
+    const month = monthNum < 10 ? `0${monthNum}` : `${monthNum}`;
+    const dateNum = d.getDate();
+    const date = dateNum < 10 ? `0${dateNum}` : `${dateNum}`;
+    if (onlyDate) {
+        return [`${d.getFullYear()}`, month, date];
+    }
+    const hoursNum = d.getHours();
+    const hours = hoursNum < 10 ? `0${hoursNum}` : `${hoursNum}`;
+    const minutesNum = d.getMinutes();
+    const minutes = minutesNum < 10 ? `0${minutesNum}` : `${minutesNum}`;
+    const secondsNum = d.getSeconds();
+    const seconds = secondsNum < 10 ? `0${secondsNum}` : `${secondsNum}`;
+    return [`${d.getFullYear()}`, month, date, hours, minutes, seconds];
+}
+/**
+ * Access log format date. format: `moment().format('DD/MMM/YYYY:HH:mm:ss ZZ')`
+ */
+function accessLogDate(d) {
+    // 16/Apr/2013:16:40:09 +0800
+    d = d || new Date();
+    const [year, month, date, hours, minutes, seconds] = getDateStringParts(d);
+    const TIMEZONE = getTimezone(d);
+    return `${date}/${MONTHS[month]}/${year}:${hours}:${minutes}:${seconds} ${TIMEZONE}`;
+}
+function getTimezone(d) {
+    const key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    const timeZone = lru.get(key);
+    if (timeZone === undefined) {
+        lru.set(key, resetTimezone(d), { maxAge: 86400000 }); // Cache for 24 hours
+        return lru.get(key);
+    }
+    return timeZone;
+}
+function logDate(d, msSep) {
+    if (typeof d === 'string') {
+        // logDate(msSep)
+        msSep = d;
+        d = new Date();
+    }
+    else {
+        // logDate(d, msSep)
+        d = d || new Date();
+    }
+    const [year, month, date, hours, minutes, seconds] = getDateStringParts(d);
+    const millisecondsNum = d.getMilliseconds();
+    let milliseconds = `${millisecondsNum}`;
+    if (millisecondsNum < 10) {
+        milliseconds = `00${millisecondsNum}`;
+    }
+    else if (millisecondsNum < 100) {
+        milliseconds = `0${millisecondsNum}`;
+    }
+    msSep = msSep || '.';
+    return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}${msSep}${milliseconds}`;
+}
+exports.YYYYMMDDHHmmssSSS = logDate;
+/**
+ * `moment().format('YYYY-MM-DD HH:mm:ss')` format date string.
+ */
+function YYYYMMDDHHmmss(d, options) {
+    d = d || new Date();
+    if (!(d instanceof Date)) {
+        d = new Date(d);
+    }
+    let dateSep = '-';
+    let timeSep = ':';
+    if (options?.dateSep) {
+        dateSep = options.dateSep;
+    }
+    if (options?.timeSep) {
+        timeSep = options.timeSep;
+    }
+    const [year, month, date, hours, minutes, seconds] = getDateStringParts(d);
+    return `${year}${dateSep}${month}${dateSep}${date} ${hours}${timeSep}${minutes}${timeSep}${seconds}`;
+}
+/**
+ * `moment().format('YYYY-MM-DD')` format date string.
+ */
+function YYYYMMDD(d, sep) {
+    if (typeof d === 'string') {
+        // YYYYMMDD(sep)
+        sep = d;
+        d = new Date();
+    }
+    else {
+        // YYYYMMDD(d, sep)
+        d = d || new Date();
+        if (typeof sep !== 'string') {
+            sep = '-';
+        }
+    }
+    const [year, month, date] = getDateStringParts(d, true);
+    return `${year}${sep}${month}${sep}${date}`;
+}
+/**
+ * return datetime struct.
+ *
+ * @return {Object} date
+ *  - {Number} YYYYMMDD, 20130401
+ *  - {Number} H, 0, 1, 9, 12, 23
+ */
+function datestruct(now) {
+    now = now || new Date();
+    return {
+        YYYYMMDD: now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate(),
+        H: now.getHours(),
+    };
+}
+/**
+ * Get Unix's timestamp in seconds.
+ */
+function timestamp(t) {
+    if (t) {
+        // convert timestamp to Date
+        // timestamp(timestampValue)
+        let v;
+        if (typeof t === 'string') {
+            v = Number(t);
+        }
+        else {
+            v = t;
+        }
+        if (String(v).length === 10) {
+            v *= 1000;
+        }
+        return new Date(v);
+    }
+    // get current timestamp
+    return Math.round(Date.now() / 1000);
+}
+/**
+ * Parse timestamp to Date
+ */
+function parseTimestamp(t) {
+    return timestamp(t);
+}
+/**
+ * Convert Date object to Unix timestamp in seconds.
+ */
+function dateToUnixTimestamp(date) {
+    return Math.round(date.getTime() / 1000);
+}
+var DateFormat;
+(function (DateFormat) {
+    DateFormat["DateTimeWithTimeZone"] = "DateTimeWithTimeZone";
+    DateFormat["DateTimeWithMilliSeconds"] = "DateTimeWithMilliSeconds";
+    DateFormat["DateTimeWithSeconds"] = "DateTimeWithSeconds";
+    DateFormat["UnixTimestamp"] = "UnixTimestamp";
+})(DateFormat || (exports.DateFormat = DateFormat = {}));
+/**
+ * Provide milliseconds, return a formatted string.
+ */
+function getDateFromMilliseconds(milliseconds, format) {
+    if (!Number.isFinite(milliseconds)) {
+        throw new Error('Invalid milliseconds value');
+    }
+    switch (format) {
+        case DateFormat.DateTimeWithTimeZone:
+            return accessLogDate(new Date(milliseconds));
+        case DateFormat.DateTimeWithMilliSeconds:
+            return logDate(new Date(milliseconds));
+        case DateFormat.DateTimeWithSeconds:
+            return YYYYMMDDHHmmss(new Date(milliseconds));
+        case DateFormat.UnixTimestamp:
+            return dateToUnixTimestamp(new Date(milliseconds)).toString();
+        default:
+            return YYYYMMDD(new Date(milliseconds));
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGF0ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9kYXRlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUdBLHNDQVVDO0FBdUJELGdEQWdCQztBQUtELHNDQU1DO0FBRUQsa0NBUUM7QUFPRCwwQkFtQkM7QUFZRCx3Q0FnQkM7QUFLRCw0QkFjQztBQWNELGdDQU1DO0FBS0QsOEJBaUJDO0FBS0Qsd0NBRUM7QUFLRCxrREFFQztBQVlELDBEQWlCQztBQXZPRCwrQkFBMkI7QUFDM0IsTUFBTSxHQUFHLEdBQUcsSUFBSSxVQUFHLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQywyQkFBMkI7QUFFdEQsU0FBZ0IsYUFBYSxDQUFDLElBQVU7SUFDdEMsSUFBSSxRQUFRLEdBQVcsRUFBRSxDQUFDO0lBQzFCLE1BQU0sZUFBZSxHQUFHLElBQUksQ0FBQyxpQkFBaUIsRUFBRSxDQUFDO0lBQ2pELE1BQU0sV0FBVyxHQUFXLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQyxlQUFlLEdBQUcsRUFBRSxDQUFDLENBQUM7SUFDOUQsTUFBTSxhQUFhLEdBQVcsSUFBSSxDQUFDLEdBQUcsQ0FBQyxlQUFlLEdBQUcsRUFBRSxDQUFDLENBQUM7SUFFN0QsUUFBUSxJQUFJLFdBQVcsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDO0lBQ3pDLFFBQVEsSUFBSSxHQUFHLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLFdBQVcsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDLENBQUMsRUFBRSxHQUFHLENBQUMsR0FBRyxNQUFNLENBQUMsYUFBYSxDQUFDLENBQUMsUUFBUSxDQUFDLENBQUMsRUFBRSxHQUFHLENBQUMsRUFBRSxDQUFDO0lBRXpHLE9BQU8sUUFBUSxDQUFDO0FBQ2xCLENBQUM7QUFFRCxNQUFNLE1BQU0sR0FBMkI7SUFDckMsSUFBSSxFQUFFLEtBQUs7SUFDWCxJQUFJLEVBQUUsS0FB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
