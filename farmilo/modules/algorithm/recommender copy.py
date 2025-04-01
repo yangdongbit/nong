@@ -12,6 +12,13 @@ from io import BytesIO
 import pymysql
 from sqlalchemy import create_engine
 from config import DB_CONFIG
+import os
+import pickle
+from hashlib import md5
+
+# 初始化缓存计数器
+cache_hits = 0
+cache_checks = 0
 
 # 停用词列表（可根据需要扩展）
 stopwords = set(["的", "是", "在", "和", "有", "了", "要", "也", "都"])
@@ -25,7 +32,6 @@ def preprocess(text):
     words = jieba.lcut(text.strip())
     # 过滤停用词
     return ' '.join([w for w in words if w not in stopwords and len(w) > 1])
-
 
 def load_data_from_mysql():
     """从MySQL数据库加载商品数据"""
@@ -102,26 +108,25 @@ def get_bert_embedding(text, tokenizer, bert_model):
     return outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
 
 
-# 生成CLIP图片嵌入向量
-# 在文件顶部新增导入
-import os
-import pickle
-from hashlib import md5
-
-
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "data", "feature_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
+
 def get_image_feature_cache(image_path):
     """获取图片特征缓存"""
+    global cache_hits, cache_checks
+    cache_checks += 1
+
     cache_key = md5(image_path.encode()).hexdigest()
     cache_file = os.path.join(CACHE_DIR, f"{cache_key}.pkl")
     if os.path.exists(cache_file):
         print(f"[缓存命中] {image_path}")
+        cache_hits += 1
         with open(cache_file, 'rb') as f:
             return pickle.load(f)
     print(f"[缓存未命中] {image_path}")
     return None
+
 
 def save_image_feature_cache(image_path, feature):
     """保存图片特征缓存"""
@@ -130,13 +135,14 @@ def save_image_feature_cache(image_path, feature):
     with open(cache_file, 'wb') as f:
         pickle.dump(feature, f)
 
+
 def get_clip_image_embedding(image_path, clip_processor=None, clip_model=None):
     try:
         # 检查缓存
         cached_feature = get_image_feature_cache(image_path)
         if cached_feature is not None:
             return cached_feature
-            
+
         # 跳过空值
         if pd.isna(image_path):
             return None
@@ -182,7 +188,7 @@ def get_clip_image_embedding(image_path, clip_processor=None, clip_model=None):
         # 保存到缓存
         save_image_feature_cache(image_path, embedding)
         return embedding
-        
+
     except Exception as e:
         print(f"图片处理失败: {e}")
         return None
@@ -280,7 +286,21 @@ def process_features(df, tokenizer, bert_model, clip_model, clip_processor):
     if use_cache:
         print("检测到缓存模式，将尝试从缓存加载图片特征")
     else:
-        print("检测到重新提取模式，将忽略缓存重新处理所有图片")
+        print("检测到重新提取模式，将清除现有缓存并重新处理所有图片")
+        # 清除现有缓存
+        try:
+            cache_files = [f for f in os.listdir(CACHE_DIR) if f.endswith('.pkl')]
+            for file in cache_files:
+                os.remove(os.path.join(CACHE_DIR, file))
+            print(f"已清除 {len(cache_files)} 个缓存文件")
+        except Exception as e:
+            print(f"清除缓存时出错: {e}")
+
+    # 声明使用全局变量
+    global cache_hits, cache_checks
+    # 重置缓存统计变量
+    cache_hits = 0
+    cache_checks = 0
 
     text_features = np.array([
         get_bert_embedding(preprocess(get_combined_text(row)), tokenizer, bert_model)
@@ -296,6 +316,7 @@ def process_features(df, tokenizer, bert_model, clip_model, clip_processor):
         for idx, row in df.iterrows():
             if idx % 10 == 0:
                 print(f"处理进度: {idx + 1}/{len(df)} (缓存命中率: {cache_hits}/{cache_checks})")
+                # 重置计数器
                 cache_hits = 0
                 cache_checks = 0
             img_features = []
@@ -316,7 +337,7 @@ def process_features(df, tokenizer, bert_model, clip_model, clip_processor):
                             img_feature = get_clip_image_embedding(
                                 clean_path, clip_processor, clip_model
                             )
-                            
+
                         if img_feature is not None:
                             img_features.append(img_feature)
 

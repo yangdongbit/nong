@@ -49,7 +49,7 @@
           </div>
           <div class="pro-img">
             <router-link :to="{ path: `/GoodsDetail/${item.id} ` }">
-              <img :src="item.imgSrc" />
+              <img :src="item.imgSrc.startsWith('http') ? item.imgSrc : `http://127.0.0.1:3000${item.imgSrc}`" />
             </router-link>
           </div>
           <div class="pro-name">
@@ -125,25 +125,6 @@
       <!-- 购物车底部导航条END -->
     </div>
     <!-- 购物车主要内容区END -->
-
-    <!-- 在购物车列表后面添加推荐商品区域 -->
-    <div class="recommend-section" v-if="shoppingCart.length > 0">
-      <h3 class="recommend-title">
-        <span>猜你喜欢</span>
-        <a href="#" class="refresh-btn">
-          <i class="el-icon-refresh"></i>
-          换一批
-        </a>
-      </h3>
-      <div class="recommend-list">
-        <div class="recommend-item" v-for="item in recommendProducts" :key="item.id">
-          <img :src="item.imgSrc" :alt="item.title">
-          <h4>{{ item.title }}</h4>
-          <p class="recommend-price">{{ item.price }}元</p>
-          <button class="add-to-cart-btn" @click="addToCart(item)">加入购物车</button>
-        </div>
-      </div>
-    </div>
 
     <!-- 修改空购物车的展示 -->
     <div v-else class="cart-empty">
@@ -711,107 +692,6 @@ const addToCart = async (product) => {
   font-size: 14px;
 }
 
-/* 推荐商品区域优化 */
-.recommend-section {
-  width: 1200px;
-  margin: 25px auto 0;
-  background: white;
-  border-radius: 12px;
-  padding: 25px 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.recommend-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.recommend-title span {
-  font-size: 20px;
-  color: #333;
-  font-weight: 600;
-}
-
-.refresh-btn {
-  color: #666;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.3s;
-  font-size: 14px;
-}
-
-.refresh-btn:hover {
-  color: #ff6700;
-}
-
-.recommend-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-.recommend-item {
-  text-align: center;
-  padding: 15px;
-  border-radius: 8px;
-  transition: all 0.3s;
-  border: 1px solid #f0f0f0;
-}
-
-.recommend-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  border-color: #ff6700;
-}
-
-.recommend-item img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  border: 1px solid #f0f0f0;
-}
-
-.recommend-item h4 {
-  font-size: 15px;
-  color: #333;
-  margin-bottom: 8px;
-  height: 40px;
-  overflow: hidden;
-  font-weight: 500;
-}
-
-.recommend-price {
-  color: #ff6700;
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.add-to-cart-btn {
-  padding: 7px 20px;
-  background: linear-gradient(135deg, #ff6700, #ff8c00);
-  color: white;
-  border: none;
-  border-radius: 18px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 14px;
-}
-
-.add-to-cart-btn:hover {
-  background: linear-gradient(135deg, #ff5700, #ff7c00);
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(255, 103, 0, 0.3);
-}
-
 /* 空购物车优化 */
 .cart-empty {
   width: 1200px;
@@ -940,7 +820,6 @@ const addToCart = async (product) => {
   .shoppingCart,
   .cart-header,
   .content,
-  .recommend-section,
   .cart-empty {
     width: 95%;
   }
@@ -949,10 +828,6 @@ const addToCart = async (product) => {
   .product-list {
     grid-template-columns: 60px 100px 2fr 1fr 1fr 1fr 100px;
     padding: 15px 20px;
-  }
-  
-  .recommend-list {
-    grid-template-columns: repeat(2, 1fr);
   }
   
   .category-list {
@@ -996,10 +871,6 @@ const addToCart = async (product) => {
   .cart-bar {
     flex-direction: column;
     gap: 15px;
-  }
-  
-  .recommend-list {
-    grid-template-columns: 1fr;
   }
   
   .empty-actions {

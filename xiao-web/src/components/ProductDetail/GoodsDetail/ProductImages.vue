@@ -3,7 +3,7 @@
        @mouseenter="stopAutoPlay"
        @mouseleave="startAutoPlay">
     <img
-      :src="currentImage"
+      :src="baseUrl + currentImage"
       :alt="productName || '商品图片'"
       class="main-image"
     />
@@ -11,8 +11,8 @@
       <img
         v-for="(thumb, index) in thumbnails"
         :key="index"
-        :src="thumb"
-        :alt="`缩略图${index + 1}`"
+        :src="baseUrl + thumb"  
+        :alt="productName || '商品图片'"
         class="thumbnail"
         :class="{ active: currentThumb === index }"
         @click="switchMainImage(index)"
@@ -32,6 +32,10 @@ const props = defineProps({
   images: {
     type: Object,
     required: true
+  },  // 这里需要添加逗号
+  baseUrl: {
+    type: String,
+    default: ''
   }
 });
 
@@ -54,7 +58,7 @@ const currentImage = computed(() => {
   if (currentThumb.value !== null) {
     return thumbnails.value[currentThumb.value];
   }
-  return props.images?.imgSrc || "http://127.0.0.1:3000/yang/img/img/default.jpg";
+  return props.images?.imgSrc || "/yang/img/img/default.jpg";
 });
 
 // 自动播放函数
@@ -140,4 +144,4 @@ onUnmounted(() => {
   transform: translateX(5px);
   box-shadow: 0 2px 8px rgba(46, 204, 113, 0.2);
 }
-</style> 
+</style>

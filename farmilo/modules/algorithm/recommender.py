@@ -47,6 +47,12 @@ def load_data_from_mysql():
         query = "SELECT * FROM farms"
         df = pd.read_sql(query, engine)
 
+        # 转换图片路径为完整URL
+        img_columns = ['imgSrc', 'imgSrc1', 'imgSrc2', 'imgSrc3', 'imgSrc4']
+        for col in img_columns:
+            if col in df.columns:
+                df[col] = df[col].apply(lambda x: f"http://127.0.0.1:3000{x}" if pd.notna(x) and not str(x).startswith('http') else x)
+
         print("成功从MySQL数据库加载数据")
         return df
 

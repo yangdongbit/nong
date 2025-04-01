@@ -22,7 +22,7 @@
         <li v-for="item in randomizedItems" :key="item.id" @click="handleItemClick(item.id)">
           <a href="#" @click.prevent>
             <div class="pic">
-              <img :src="item.imgSrc" :alt="item.title" />
+              <img :src="`${URL}${item.imgSrc}`" :alt="item.title" />
               <div class="sales-badge">
                 销量: {{ item.sales_volume }}
               </div>
@@ -51,6 +51,8 @@ import { useRouter } from 'vue-router'; // 导入 useRouter
 
 // 获取 router 实例
 const router = useRouter();
+
+const  URL = 'http://127.0.0.1:3000'
 
 // 声明从父组件接收的 props
 const props = defineProps({

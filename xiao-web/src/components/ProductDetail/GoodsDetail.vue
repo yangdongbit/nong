@@ -10,6 +10,7 @@
         <ProductImages 
           :product-name="farms?.name"
           :images="farms"
+          :base-url="URL"
         />
         <div class="product-info-container">
           <ShopInfo />
@@ -36,6 +37,7 @@
           <ProductDescription
             v-if="currentTab === 'description'"
             :product="farms"
+            :base-url="URL"
           />
           <ProductSpecs
             v-else-if="currentTab === 'specs'"
@@ -49,6 +51,7 @@
           <ProductRecommendations
             v-else-if="currentTab === 'recommendations'"
             :product="farms"
+            :base-url="URL"
             @show-message="showMessage"
           />
         </div>
@@ -82,6 +85,8 @@ const evaluationsStore = useEvaluationsStore();
 const farms = ref({});
 const evaluations = ref([]);
 const currentTab = ref("description");
+
+const  URL = 'http://127.0.0.1:3000'
 
 // 标签页配置
 const tabs = [

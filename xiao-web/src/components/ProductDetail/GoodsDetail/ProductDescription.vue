@@ -27,7 +27,7 @@
       <img
         v-for="(img, index) in detailImages"
         :key="index"
-        :src="img"
+        :src="baseUrl + img"
         :alt="'商品展示图' + (index + 1)"
       />
     </div>
@@ -41,6 +41,10 @@ const props = defineProps({
   product: {
     type: Object,
     required: true
+  },
+  baseUrl: {
+    type: String,
+    default: ''
   }
 });
 
@@ -209,4 +213,4 @@ const detailImages = computed(() => {
   transform: scale(1.02);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
-</style> 
+</style>
