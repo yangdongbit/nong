@@ -66,19 +66,19 @@ const Logout = () => {
 
 /* 导航 */
 .shortcut {
-  height: 52px;
+  height: 60px;
   background-color: #8acd58;
 }
 
 .shortcut .wrapper {
   display: flex;
   justify-content: flex-end;
-  height: 52px;
+  height: 60px;
 }
 
 .shortcut .wrapper ul {
   display: flex;
-  line-height: 52px;
+  line-height: 60px;
 }
 
 .shortcut li a {

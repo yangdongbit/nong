@@ -25,6 +25,12 @@
       <swiper-slide>
         <img src="http://127.0.0.1:3000/yang/img/img/轮播图5.jpg" alt="轮播图 5" />
       </swiper-slide>
+      <swiper-slide>
+        <img src="http://127.0.0.1:3000/yang/img/img/轮播图6.jpg" alt="轮播图 5" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="http://127.0.0.1:3000/yang/img/img/轮播图7.jpg" alt="轮播图 5" />
+      </swiper-slide>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>

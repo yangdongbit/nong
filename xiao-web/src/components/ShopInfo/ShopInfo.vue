@@ -65,7 +65,7 @@ const selectType = (type) => {
 }
 
 .header {
-  background-color: #10b981;
+  background-color: #8acd58;
   color: white;
   padding: 15px 0;
   text-align: center;

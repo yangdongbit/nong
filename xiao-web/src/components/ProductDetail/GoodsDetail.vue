@@ -5,7 +5,7 @@
     </header>
 
     <div class="container">
-      <router-link to="/ShopHomePage" class="back-btn">返回首页</router-link>
+      <router-link to="/ShopHomePage" class="back-btn">← 返回首页</router-link>
       <div class="product-detail">
         <ProductImages 
           :product-name="farms?.name"
@@ -55,7 +55,6 @@
       </div>
     </div>
 
-    <!-- 添加提示框 -->
     <transition name="message-fade">
       <div v-if="messageVisible" class="message-box" :class="messageType">
         <span class="message-icon">{{ messageIcon }}</span>
@@ -160,95 +159,107 @@ onMounted(loadProductData);
 
 <style scoped>
 .header {
-  background-color: #2ecc71;
+  background: linear-gradient(135deg, #8acd58, #8acd58);
   color: white;
-  padding: 15px 0;
+  /* padding: 1rem 0; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+  height: 70px;
+  line-height: 70px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .container {
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 24px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.back-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .product-detail {
   display: flex;
-  gap: 40px;
+  gap: 30px;
+  margin-top: 1rem;
 }
 
 .product-info-container {
   flex: 1;
-}
-
-.back-btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background: #f1f1f1;
-  color: #333;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-bottom: 20px;
+  padding-left: 1.5rem;
+  border-left: 2px solid #f0f0f0;
 }
 
 .product-details-tabs {
-  margin-top: 40px;
+  margin-top: 2.5rem;
 }
 
 .tab-buttons {
   display: flex;
-  justify-content: flex-start;
-  gap: 40px;
-  margin-bottom: 30px;
-  padding: 0 20px;
-  position: relative;
-}
-
-.tab-buttons::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  right: 20px;
-  height: 1px;
-  background: #eee;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 1.1rem;
   color: #666;
-  padding: 15px 0;
+  padding: 0.8rem 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   margin: 0;
   position: relative;
-  text-align: center;
-  min-width: 100px;
+  font-weight: 500;
 }
 
 .section-title::after {
   content: "";
   position: absolute;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: #2ecc71;
+  height: 3px;
+  background: #28a745;
   transform: scaleX(0);
-  transition: transform 0.3s ease;
-  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-title:hover {
-  color: #2ecc71;
+  color: #28a745;
 }
 
 .section-title.active {
-  color: #2ecc71;
-  font-weight: bold;
+  color: #28a745;
+  font-weight: 600;
 }
 
 .section-title.active::after {
@@ -257,56 +268,57 @@ onMounted(loadProductData);
 
 .message-box {
   position: fixed;
-  top: 20px;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: 12px 24px;
-  border-radius: 4px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  gap: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 9999;
-  font-size: 14px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(4px);
 }
 
 .message-icon {
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .success {
-  background-color: #f0f9eb;
-  color: #67c23a;
-  border: 1px solid #c2e7b0;
+  background: rgba(104, 214, 137, 0.95);
+  color: #155724;
+  border: 1px solid #b7ebc9;
 }
 
 .error {
-  background-color: #fef0f0;
-  color: #f56c6c;
-  border: 1px solid #fbc4c4;
+  background: rgba(245, 108, 108, 0.95);
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .warning {
-  background-color: #fdf6ec;
-  color: #e6a23c;
-  border: 1px solid #f5dab1;
+  background: rgba(255, 193, 77, 0.95);
+  color: #856404;
+  border: 1px solid #ffeeba;
 }
 
 .info {
-  background-color: #f4f4f5;
-  color: #909399;
+  background: rgba(144, 147, 153, 0.95);
+  color: #f8f9fa;
   border: 1px solid #d3d4d6;
 }
 
 .message-fade-enter-active,
 .message-fade-leave-active {
-  transition: opacity 0.3s, transform 0.3s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message-fade-enter-from,
 .message-fade-leave-to {
   opacity: 0;
-  transform: translate(-50%, -20px);
+  transform: translate(-50%, -30px);
 }
 </style>

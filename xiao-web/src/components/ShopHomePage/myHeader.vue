@@ -89,7 +89,10 @@ onMounted(async () => {
   height: 88px;
 }
 .logo a img {
-  height: 100px;
+  width: 100%;  /* 改为宽度100%适应容器 */
+  height: auto;  /* 高度自动保持比例 */
+  max-height: 88px;  /* 最大高度限制 */
+  object-fit: contain;  /* 保持图片比例 */
 }
 
 /* 导航 */

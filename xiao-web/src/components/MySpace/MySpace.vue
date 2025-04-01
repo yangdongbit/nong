@@ -1824,21 +1824,19 @@ body {
 header {
   background-color: #8acd58;
   color: white;
-  padding: 1rem 0;
+  height: 80px;
 }
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
 }
 .header-content h1 {
   font-size: 24px;
-  margin: 0;
+  margin-bottom: 15px;
 }
-/* .logo img {
-  height: 40px;
-} */
+
+
 main {
   display: flex;
   gap: 2rem;

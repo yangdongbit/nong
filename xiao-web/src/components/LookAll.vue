@@ -259,7 +259,7 @@ const handleImageSearch = () => {
 
 header {
   background: linear-gradient(135deg, #8acd58, #bdf98c);
-  padding: 15px 0;
+  padding: 10px 0; /* 减小顶部和底部内边距 */
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -268,15 +268,13 @@ header {
   max-width: 1200px;
   margin: 0 auto;
 }
-.container img {
-  width: 100px;
-}
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  height: 80px; /* 设置固定高度 */
 }
 
 .header-left {
@@ -296,14 +294,14 @@ header {
 }
 
 .logo-img {
-  width: 45px;
-  height: 45px;
+  width: 120px; /* 增大logo宽度 */
+  height: 120px; /* 增大logo高度 */
   object-fit: contain;
   margin-right: 12px;
 }
 
 .logo-text {
-  font-size: 28px;
+  font-size: 32px; /* 增大文字大小 */
   font-weight: bold;
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -343,7 +341,7 @@ header {
 
 .main-content {
   flex-grow: 1;
-  padding: 40px 0;
+  padding: 30px 0; /* 减小内边距 */
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -355,7 +353,7 @@ header {
   gap: 30px;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 40px;
+  margin: 0 auto 30px; /* 减小底部外边距 */
 }
 
 .search-sort-wrapper {
@@ -377,7 +375,7 @@ header {
   font-size: 16px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
-  height: 47px; /* 与搜索框高度保持一致 */
+  height: 47px;
   min-width: 140px;
 }
 
@@ -473,7 +471,6 @@ header {
   transform: translateX(2px);
 }
 
-/* 添加搜索框焦点效果 */
 .search-input-wrapper:focus-within {
   box-shadow: 0 0 0 2px rgba(140, 215, 74, 0.2);
 }
@@ -643,7 +640,7 @@ footer p {
 
 .sort-wrapper {
   min-width: 140px;
-  height: 47px; /* 与搜索框高度保持一致 */
+  height: 47px;
   display: flex;
   align-items: center;
 }
@@ -672,7 +669,6 @@ footer p {
   background-position: right 10px center;
   background-size: 16px;
   padding-right: 35px;
-  /* box-shadow: 0 4px 15px rgba(131, 231, 42, 0.2); */
 }
 
 .sort-select:hover {
@@ -763,7 +759,6 @@ footer p {
   font-weight: 500;
 }
 
-/* 响应式调整 */
 @media (max-width: 768px) {
   .filter-tags-container {
     padding: 0 20px;

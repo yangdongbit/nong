@@ -99,7 +99,7 @@ onUnmounted(() => {
 
 .main-image {
   width: 100%;
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 0;
